@@ -1,0 +1,11 @@
+{
+  "name": "NEXT!!",
+  "version": "1.0.0",
+  "description": "Add eventlistener to right keypress",
+  "manifest_version": 2,
+  "author": "Kent Are Torvik",
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "permissions": ["tabs", "http://*/*", "https://*/*", "activeTab"]
+}
