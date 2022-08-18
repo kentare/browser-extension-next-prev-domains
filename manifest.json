@@ -1,11 +1,13 @@
 {
   "name": "NEXT!!",
   "version": "1.0.0",
-  "description": "Add eventlistener to right keypress",
-  "manifest_version": 2,
+  "description": "Add eventlistener to left/right keypress",
+  "manifest_version": 3,
   "author": "Kent Are Torvik",
-  "background": {
-    "scripts": ["js/background.js"]
-  },
-  "permissions": ["tabs", "http://*/*", "https://*/*", "activeTab"]
+  "content_scripts": [
+    {
+      "matches": ["https://*.expireddomains.net/*"],
+      "js": ["js/rightclicklistener.js"]
+    }
+  ]
 }
