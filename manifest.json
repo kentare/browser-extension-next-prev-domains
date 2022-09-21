@@ -7,7 +7,8 @@
   "content_scripts": [
     {
       "matches": ["https://*.expireddomains.net/*"],
-      "js": ["js/rlkeylistener.js"]
+      "js": ["js/rlkeylistener.js", "js/seen.js"]
     }
-  ]
+  ],
+  "permissions": ["storage", "unlimitedStorage"]
 }
