@@ -10,10 +10,10 @@ chrome.storage.sync.get(domains, function (stored) {
     if (!storedDomains.includes(element.textContent)) {
       stored[element.textContent] = new Date()
       // NEW
-      element.children[0].style.color = 'red'
+      element.children[0].style.color = 'blue'
     } else {
       // SEEN
-      element.children[0].style.color = 'blue'
+      element.children[0].style.color = 'red'
     }
   })
 
