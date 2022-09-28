@@ -1,14 +1,17 @@
 let domainElements = document.querySelectorAll('.field_domain')
-let domains = [...domainElements].map((element) => element.textContent)
+let domains = [...domainElements].map((element) => {
+  return element.querySelector('a').textContent
+})
 
-chrome.storage.sync.get(domains, function (stored) {
+chrome.storage.local.get(domains, function (stored) {
   stored = { ...stored }
 
   let storedDomains = Object.keys(stored).map((domain) => domain)
 
   domainElements.forEach((element) => {
-    if (!storedDomains.includes(element.textContent)) {
-      stored[element.textContent] = new Date()
+    const content = element.querySelector('a').textContent
+    if (!storedDomains.includes(content)) {
+      stored[content] = new Date()
       // NEW
       element.children[0].style.color = 'blue'
     } else {
@@ -17,5 +20,5 @@ chrome.storage.sync.get(domains, function (stored) {
     }
   })
 
-  chrome.storage.sync.set(stored, function () {})
+  chrome.storage.local.set(stored, function () {})
 })
